@@ -1,0 +1,47 @@
+@mixin breakpoint($min-device-width, $max-device-width) {
+  @media (min-width: $min-device-width) and (max-width: $max-device-width) {
+    @content;
+  }}
+
+@mixin flexCol($alignItems){
+	display: flex;
+	flex-direction: column;
+	align-items: $alignItems;}
+
+@mixin flexRow($jc){
+	display: flex;
+	justify-content: $jc;
+	align-items: center; }
+
+
+@mixin border(){
+	/* border: 1px solid black; */
+	width: 80%;
+	padding: 0 10% 0 10%;}
+
+@mixin buttonStyleOne($pt, $pl){
+	background-color:$globalColorTwo;
+	padding: $pt $pl;
+	border-radius: 50px;
+	color: $globalColorOne;
+	border: 0px solid;
+	cursor: pointer}
+
+@mixin hrAfterSpan($color){
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin-top: 10px;
+	background-color: $color;
+}
+
+@mixin hrAfterBeforeHeader($w){
+		display: block;
+		content:"";
+		width: $w;
+		height: 1px;
+		margin: 5px 10px;
+		background-color:$globalColorOne;
+}
+
