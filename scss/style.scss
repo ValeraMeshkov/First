@@ -1,892 +1,911 @@
 @import "variable";
 @import "mixin";
 
-*{
-	text-decoration: none;
-	margin: 0;
-	padding: 0;
-}
-body{
-	width: 100%;
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
-header{
-	color: white;
-	background-color: green;
-	background-image: url(../img/header.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	@include border();
-	@include flexCol(center);
-
-	input, label{
-		display: none
-	}
-	a, h1, span, button{
-		text-transform: uppercase;
-	}
-	a{
-		color: $globalColorOne;
-		&:hover{
-			color: $globalColorTwo;
-		}
-	}
-
-	p {
-		font-family: brush script mt ,matura mt script capitals;
-	}
-	.blockWithSpan{
-		@include flexRow(center);
-	}
-
-	@include breakpoint($bigWidth, $veryBigWidth){
-		p{
-			margin-top: 10px;
-			font-size: 50px;
-		}
-		.headerHref{
-			margin-top: 20px;
-			@include flexRow(space-between);
-			width: 60%;
-			font-size: 20px;
-		}
-		h1{
-			margin-top: 20px;
-			font-size: 50px;
-		}
-		.blockWithSpan{
-			margin-top: 20px;
-				&:after, &:before{
-					@include hrAfterBeforeHeader(90px)
-				};
-		}
-		button{
-			@include buttonStyleOne(10px, 20px);
-			margin: 20px 0;
-			font-size: 15px;
-		}
-	}
-
-	@include breakpoint($normalWidth, $bigWidth){
-		p{
-			margin-top: 10px;
-			font-size: 40px;
-		}
-		.headerHref{
-			margin-top: 20px;
-			@include flexRow(space-between);
-			width: 70%;
-			font-size: 16px;
-		}
-		h1{
-			margin-top: 20px;
-			font-size: 45px;
-		}
-		.blockWithSpan{
-			margin-top: 15px;
-			font-size: 15px;
-			&:after, &:before{
-					@include hrAfterBeforeHeader(75px)
-			};
-		}
-		button{
-			@include buttonStyleOne(8px, 18px);
-			margin: 20px 0;
-			font-size: 15px;
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		p{
-			margin-top: 5px;
-			font-size: 30px;
-		}
-		.headerHref{
-			margin-top: 10px;
-			@include flexRow(space-between);
-			width: 70%;
-			font-size: 10px;
-		}
-		h1{
-			margin-top: 10px;
-			font-size: 30px;
-		}
-		.blockWithSpan{
-			margin-top: 10px;
-			font-size: 10px;
-			&:after, &:before{
-				@include hrAfterBeforeHeader(45px)
-			};
-		}
-		button{
-			@include buttonStyleOne(6px, 10px);
-			margin: 10px 0;
-			font-size: 10px;
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		header{
-			position: absolute;
-		}
-		p{
-			position: relative;
-			margin: 10px 0 10px -80%;
-			font-size: 30px;
-		}
-		#burger{
-			margin-bottom: 20px;
-			background-color: green;
-			height: 300px;
-		}
-		.headerHref{
-			display: none;
-			position: relative;
-			width: 150px;
-			margin-top: -10px;
-			margin-bottom: 10px;
-			margin-left:50%;
-			float: right;
-
-			a{
-				height: 30px;
-				line-height: 30px;
-				text-align: center;
-				display: block;
-				background-color: pink;
-				&:before{
-					content: "";
-					display: block;
-					width: 100%;
-					height: 1px;
-					background-color: grey;
-				};
-			}
-		}
-
-		.nav_burger{
-			display: block;
-			background-color:  yellowgreen;
-			margin-top: -45px;
-			margin-left: 50%;
-			margin-bottom: 10px;
-			width: 150px;
-			font-size: 20px;
-			text-align: center;
-			line-height: 30px;
-			/* color: transparent; */
-		}
-		.nav_burger_checkbox{
-			display: none;
-			&:checked{
-				+ .nav_burger {
-					background-color:red;
-				}
-
-				~ .headerHref {
-					display: block;
-				}
-			};
-		}
-
-
-
-
-		h1, .blockWithSpan, button{
-			display: none;
-		}
-	}
+body {
+  width: 100%;
 }
 
-#wrapper{
-	p, span{
-		color: $globalColorThree;
-	}
-	a{
-		color: $globalColorTwo;
-	}
-	span{
-		font-weight: bold;
-		text-transform: uppercase;
-	}
+header {
+  color: $globalColorOne;
+  background-image: url(../img/header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include border();
+  @include flexCol(center);
 
-	@include breakpoint($bigWidth, $veryBigWidth){
-		p, span, a{
-			font-size: 17px;
-		}
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		p, span, a{
-			font-size: 16px;
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		p, span, a{
-			font-size: 14px;
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		p, span, a{
-			font-size: 12px;
-		}
-	}
+  input, label {
+    display: none
+  }
+  a, h1, span, button {
+    text-transform: uppercase;
+  }
+  a {
+    color: $globalColorOne;
+    &:hover {
+      color: $globalColorTwo;
+    }
+  }
+
+  p {
+    font-family: brush script mt, matura mt script capitals;
+  }
+  .blockWithSpan {
+    @include flexRow(center);
+  }
+
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    p {
+      margin-top: 10px;
+      font-size: 50px;
+    }
+    .headerHref {
+      margin-top: 20px;
+      @include flexRow(space-between);
+      width: 60%;
+      font-size: 20px;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 50px;
+    }
+    .blockWithSpan {
+      margin-top: 20px;
+      &:after, &:before {
+        @include hrAfterBeforeHeader(90px)
+      }
+    ;
+    }
+    button {
+      @include buttonStyleOne(10px, 20px);
+      margin: 20px 0;
+      font-size: 15px;
+    }
+  }
+
+  @include breakpoint($normalWidth, $bigWidth) {
+    p {
+      margin-top: 10px;
+      font-size: 40px;
+    }
+    .headerHref {
+      margin-top: 20px;
+      @include flexRow(space-between);
+      width: 70%;
+      font-size: 16px;
+    }
+    h1 {
+      margin-top: 20px;
+      font-size: 45px;
+    }
+    .blockWithSpan {
+      margin-top: 15px;
+      font-size: 15px;
+      &:after, &:before {
+        @include hrAfterBeforeHeader(75px)
+      }
+    ;
+    }
+    button {
+      @include buttonStyleOne(8px, 18px);
+      margin: 20px 0;
+      font-size: 15px;
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    p {
+      margin-top: 5px;
+      font-size: 30px;
+    }
+    .headerHref {
+      margin-top: 10px;
+      @include flexRow(space-between);
+      width: 70%;
+      font-size: 10px;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 30px;
+    }
+    .blockWithSpan {
+      margin-top: 10px;
+      font-size: 10px;
+      &:after, &:before {
+        @include hrAfterBeforeHeader(45px)
+      }
+    ;
+    }
+    button {
+      @include buttonStyleOne(6px, 10px);
+      margin: 10px 0;
+      font-size: 10px;
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    header {
+      position: absolute;
+    }
+    p {
+      position: relative;
+      margin: 10px 0 10px -80%;  //if you use position: relative or position:absolute don't use margin! USE left, top, bottom, right
+      font-size: 30px;
+    }
+    #burger {
+      margin-bottom: 20px;
+      background-color: green;
+      height: 300px;
+    }
+    .headerHref {
+      display: none;
+      position: relative;
+      width: 150px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      margin-left: 50%;
+      float: right;
+
+      a {
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        display: block;
+        background-color: pink;
+        &:before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: grey;
+        }
+      ;
+      }
+    }
+
+    .nav_burger {
+      display: block;
+      background-color: yellowgreen;
+      margin-top: -45px;
+      margin-left: 50%;
+      margin-bottom: 10px;
+      width: 150px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 30px;
+      /* color: transparent; */
+    }
+    .nav_burger_checkbox {
+      display: none;
+      &:checked {
+        + .nav_burger {
+          background-color: red;
+        }
+
+        ~ .headerHref {
+          display: block;
+        }
+      }
+    ;
+    }
+
+    h1, .blockWithSpan, button {
+      display: none;
+    }
+  }
 }
 
-.blockWithThreeIkon{
-	@include border();
-	i{
-		color: $globalColorTwo;
-	}
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 30px 0;
-			@include flexCol(center);
-			width: 25%;
-			text-align: center;
-		}
-		i{
-			font-size: 60px;
-		}
-		span{
-			margin-top: 20px;
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-				margin-bottom: 10px;
-			}
-		}
-	}
+#wrapper {
+  p, span {
+    color: $globalColorThree;
+  }
+  a {
+    color: $globalColorTwo;
+  }
+  span {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 20px 0;
-			@include flexCol(center);
-			width: 30%;
-			text-align: center;
-		}
-		i{
-			font-size: 50px;
-		}
-		span{
-			margin-top: 15px;
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-				margin-bottom: 10px;
-			}
-		}
-	}
-
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		background-color: $globalColorSix;
-		div{
-			@include flexRow(center);
-			width: 100%;
-			text-align: center;
-		}
-		i{
-			margin: 10px 0;
-			font-size: 30px;
-		}
-		span{
-			margin-left: 10px;
-		}
-		p{
-			margin-left: 10px;
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		background-color: $globalColorSix;
-		div{
-			margin: 10px 0;
-			@include flexRow(center);
-			width: 120%;
-			text-align: center;
-		}
-		i{
-			font-size: 20px;
-		}
-		span{
-			margin-left: 10px;
-		}
-		p{
-			margin-left: 10px;
-		}
-	}
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    p, span, a {
+      font-size: 17px;
+    }
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    p, span, a {
+      font-size: 16px;
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    p, span, a {
+      font-size: 14px;
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    p, span, a {
+      font-size: 12px;
+    }
+  }
 }
 
+.blockWithThreeIkon {
+  @include border();
+  i {
+    color: $globalColorTwo;
+  }
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 30px 0;
+      @include flexCol(center);
+      width: 25%;
+      text-align: center;
+    }
+    i {
+      font-size: 60px;
+    }
+    span {
+      margin-top: 20px;
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+        margin-bottom: 10px;
+      }
+    }
+  }
 
-.blockWithNews{
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 20px 0;
+      @include flexCol(center);
+      width: 30%;
+      text-align: center;
+    }
+    i {
+      font-size: 50px;
+    }
+    span {
+      margin-top: 15px;
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+        margin-bottom: 10px;
+      }
+    }
+  }
 
-	@include border();
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		div{
-			width: 40%;
-			@include flexCol(left)
-		}
-		img{
-			margin-top: 30px;
-			width: 100%;
-			height: auto;
-		}
-		span{
-			margin-top: 20px;
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-			}
-		}
-		p{
-			margin-top: 20px;
-		}
-		button{
-			@include buttonStyleOne(10px, 20px);
-			margin: 20px 0 30px 0;
-		}
-	}
-
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		div{
-			width: 45%;
-			@include flexCol(left)
-		}
-		img{
-			margin-top: 20px;
-			width: 100%;
-			height: auto;
-		}
-		span{
-			margin-top: 15px;
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-			}
-		}
-		p{
-			margin-top: 15px;
-		}
-		button{
-			@include buttonStyleOne(8px, 15px);
-			margin: 20px 0 20px 0;
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			margin: 10px 0;
-			width: 100%;
-			@include flexRow(space-between)
-		}
-		img{
-			display: none;
-		}
-		span{
-			margin-right: 10px;
-		}
-		p{
-			margin-right: 10px;
-		}
-		button{
-			@include buttonStyleOne(2px, 8px);
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			margin: 10px 0;
-			width: 120%;
-			@include flexCol(center)
-		}
-		img{
-			display: none;
-		}
-		span{
-			margin-top: 5px;
-		}
-		p{
-			margin-top: 5px;
-		}
-		button{
-			margin-top: 5px;
-			@include buttonStyleOne(2px, 5px);
-		}
-	}
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSix;
+    div {
+      @include flexRow(center);
+      width: 100%;
+      text-align: center;
+    }
+    i {
+      margin: 10px 0;
+      font-size: 30px;
+    }
+    span {
+      margin-left: 10px;
+    }
+    p {
+      margin-left: 10px;
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSix;
+    div {
+      margin: 10px 0;
+      @include flexRow(center);
+      width: 120%;
+      text-align: center;
+    }
+    i {
+      font-size: 20px;
+    }
+    span {
+      margin-left: 10px;
+    }
+    p {
+      margin-left: 10px;
+    }
+  }
 }
 
+.blockWithNews {
 
-.centerBlock{
-	@include border();
-	i{
-		color: $globalColorFour;
-	}
-	@include breakpoint($bigWidth, $veryBigWidth){
-		i{
-			margin-top: 30px;
-			font-size:40px;
-		}
-		span{
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-			}
-		}
-		p{
-			margin-top: 20px;
-		}
-		button{
-			@include buttonStyleOne(10px, 20px);
-			margin: 30px 0;
-		}
-	}
+  @include border();
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    div {
+      width: 40%;
+      @include flexCol(left)
+    }
+    img {
+      margin-top: 30px;
+      width: 100%;
+      height: auto;
+    }
+    span {
+      margin-top: 20px;
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+      }
+    }
+    p {
+      margin-top: 20px;
+    }
+    button {
+      @include buttonStyleOne(10px, 20px);
+      margin: 20px 0 30px 0;
+    }
+  }
 
-	@include breakpoint($normalWidth, $bigWidth){
-		i{
-			margin-top: 20px;
-			font-size:30px;
-		}
-		span{
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-			}
-		}
-		p{
-			margin-top: 10px;
-		}
-		button{
-			@include buttonStyleOne(8px, 15px);
-			margin: 20px 0;
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		background-color: $globalColorSix;
-		i{
-			margin-top: 10px;
-			font-size:25px;
-		}
-		span{
-			&:after{
-				@include hrAfterSpan(#B7B7B7);
-			}
-		}
-		p{
-			margin-top: 10px;
-		}
-		button{
-			@include buttonStyleOne(2px, 5px);
-			margin: 10px 0;
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		background-color: $globalColorSix;
-
-		i{
-			margin: 5px 0 0 -10%;
-			font-size:15px;
-		}
-		p{
-			margin: 5px 0 0 -10%;
-		}
-		button{
-			@include buttonStyleOne(2px, 5px);
-			margin: 5px 0 5px -10%;
-		}
-	}
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    div {
+      width: 45%;
+      @include flexCol(left)
+    }
+    img {
+      margin-top: 20px;
+      width: 100%;
+      height: auto;
+    }
+    span {
+      margin-top: 15px;
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+      }
+    }
+    p {
+      margin-top: 15px;
+    }
+    button {
+      @include buttonStyleOne(8px, 15px);
+      margin: 20px 0 20px 0;
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      margin: 10px 0;
+      width: 100%;
+      @include flexRow(space-between)
+    }
+    img {
+      display: none;
+    }
+    span {
+      margin-right: 10px;
+    }
+    p {
+      margin-right: 10px;
+    }
+    button {
+      @include buttonStyleOne(2px, 8px);
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      margin: 10px 0;
+      width: 120%;
+      @include flexCol(center)
+    }
+    img {
+      display: none;
+    }
+    span {
+      margin-top: 5px;
+    }
+    p {
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 5px;
+      @include buttonStyleOne(2px, 5px);
+    }
+  }
 }
 
+.centerBlock {
+  @include border();
+  i {
+    color: $globalColorFour;
+  }
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    i {
+      margin-top: 30px;
+      font-size: 40px;
+    }
+    span {
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+      }
+    }
+    p {
+      margin-top: 20px;
+    }
+    button {
+      @include buttonStyleOne(10px, 20px);
+      margin: 30px 0;
+    }
+  }
 
-.blockWithHref{
-	@include border();
+  @include breakpoint($normalWidth, $bigWidth) {
+    i {
+      margin-top: 20px;
+      font-size: 30px;
+    }
+    span {
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+      }
+    }
+    p {
+      margin-top: 10px;
+    }
+    button {
+      @include buttonStyleOne(8px, 15px);
+      margin: 20px 0;
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    background-color: $globalColorSix;
+    i {
+      margin-top: 10px;
+      font-size: 25px;
+    }
+    span {
+      &:after {
+        @include hrAfterSpan(#B7B7B7);
+      }
+    }
+    p {
+      margin-top: 10px;
+    }
+    button {
+      @include buttonStyleOne(2px, 5px);
+      margin: 10px 0;
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    background-color: $globalColorSix;
 
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 30px 0;
-			width: 30%;
-			img{
-				width: 100%;
-				height: auto;
-				margin-bottom: 20px;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 20px 0;
-			}
-		}
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 20px 0;
-			width: 30%;
-			img{
-				width: 100%;
-				height: auto;
-				margin-bottom: 15px;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 15px 0;
-			}
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			@include flexCol(center);
-			text-align: center;
-			margin: 10px 0;
-			width: 100%;
-			img{
-				width: 50%;
-				height: auto;
-				margin-bottom: 10px;
-			}
-			p{
-				margin: 10px 0;
-			}
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			@include flexCol(center);
-			text-align: center;
-			margin: 10px 0;
-			width: 120%;
-			img{
-				width: 40%;
-				height: auto;
-				margin-bottom: 5px;
-			}
-			p{
-				margin: 5px 0;
-			}
-		}
-	}
+    i {
+      margin: 5px 0 0 -10%;
+      font-size: 15px;
+    }
+    p {
+      margin: 5px 0 0 -10%;
+    }
+    button {
+      @include buttonStyleOne(2px, 5px);
+      margin: 5px 0 5px -10%;
+    }
+  }
 }
 
+.blockWithHref {
+  @include border();
 
-.blockWithTwoIkon{
-	@include border();
-	i{
-		color: $globalColorFive;
-	}
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 30px 0;
-			width: 45%;
-			i{
-				margin-right: 10px;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 20px 0;
-			}
-			button{
-				@include buttonStyleOne(10px, 20px);
-			}
-		}
-
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 20px 0;
-			width: 45%;
-			i{
-				margin-right: 10px;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 15px 0;
-			}
-			button{
-				@include buttonStyleOne(8px, 15px);
-			}
-		}
-
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		background-color: $globalColorSix;
-		div{
-			margin: 10px 0;
-			width: 100%;
-			i{
-				margin-right: 10px;
-			}
-			p{
-				margin: 10px 0;
-			}
-			button{
-				@include buttonStyleOne(2px, 5px);
-			}
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		background-color: $globalColorSix;
-		div{
-			margin: 5px 0;
-			width: 120%;
-			i{
-				margin-right: 5px;
-			}
-			p{
-				margin: 5px 0;
-			}
-			button{
-				@include buttonStyleOne(2px, 5px);
-			}
-		}
-	}
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 30px 0;
+      width: 30%;
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 20px 0;
+      }
+    }
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 20px 0;
+      width: 30%;
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 15px 0;
+      }
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      @include flexCol(center);
+      text-align: center;
+      margin: 10px 0;
+      width: 100%;
+      img {
+        width: 50%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      @include flexCol(center);
+      text-align: center;
+      margin: 10px 0;
+      width: 120%;
+      img {
+        width: 40%;
+        height: auto;
+        margin-bottom: 5px;
+      }
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
 }
 
+.blockWithTwoIkon {
+  @include border();
+  i {
+    color: $globalColorFive;
+  }
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 30px 0;
+      width: 45%;
+      i {
+        margin-right: 10px;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 20px 0;
+      }
+      button {
+        @include buttonStyleOne(10px, 20px);
+      }
+    }
 
-.bottomBlock{
-	@include border();
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 30px 0;
-			width: 47%;
-			img{
-				width: 100%;
-				height: 100%;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 20px 0;
-			}
-			button{
-				@include buttonStyleOne(10px, 20px);
-			}
-		}
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		div{
-			margin: 20px 0;
-			width: 47%;
-			img{
-				width: 100%;
-				height: 100%;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 15px 0;
-			}
-			button{
-				@include buttonStyleOne(8px, 15px);
-			}
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			margin: 10px 0;
-			width: 100%;
-			img{
-				width: 60%;
-				margin-left: 20%;
-				height: 100%;
-			}
-			span{
-				&:after{
-					@include hrAfterSpan(#B7B7B7);
-				}
-			}
-			p{
-				margin: 10px 0;
-			}
-			button{
-				@include buttonStyleOne(2px, 5px);
-			}
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		background-color: $globalColorSeven;
-		div{
-			margin: 3px 0;
-			width: 120%;
-			img{
-				width: 60%;
-				margin-left: 20%;
-				height: 100%;
-			}
-			p{
-				margin: 5px 0;
-			}
-			button{
-				@include buttonStyleOne(2px, 5px);
-			}
-		}
-	}
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 20px 0;
+      width: 45%;
+      i {
+        margin-right: 10px;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 15px 0;
+      }
+      button {
+        @include buttonStyleOne(8px, 15px);
+      }
+    }
+
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSix;
+    div {
+      margin: 10px 0;
+      width: 100%;
+      i {
+        margin-right: 10px;
+      }
+      p {
+        margin: 10px 0;
+      }
+      button {
+        @include buttonStyleOne(2px, 5px);
+      }
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSix;
+    div {
+      margin: 5px 0;
+      width: 120%;
+      i {
+        margin-right: 5px;
+      }
+      p {
+        margin: 5px 0;
+      }
+      button {
+        @include buttonStyleOne(2px, 5px);
+      }
+    }
+  }
 }
 
-
-footer{
-	background-color: $globalColorTwo;
-	@include border();
-	span, i, p{
-		color: $globalColorOne;
-	}
-
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexCol(center);
-		.footerBlockTop{
-			text-align: center;
-			margin: 50px 0;
-			span, i{
-				font-size: 25px;
-			}
-		}
-		.footerBlockBottom{
-			@include flexRow(space-between);
-			width: 100%;
-			font-size: 30px;
-			margin-bottom: 50px;
-		}
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexCol(center);
-		.footerBlockTop{
-			text-align: center;
-			margin: 35px 0;
-			span, i{
-				font-size: 20px;
-			}
-		}
-		.footerBlockBottom{
-			@include flexRow(space-between);
-			width: 100%;
-			font-size: 25px;
-			margin-bottom: 35px;
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexCol(center);
-		.footerBlockTop{
-			text-align: center;
-			margin: 25px 0;
-			span, i{
-				font-size: 15px;
-			}
-		}
-		.footerBlockBottom{
-			@include flexRow(space-between);
-			width: 100%;
-			font-size: 15px;
-			margin-bottom: 25px;
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexCol(center);
-		.footerBlockTop{
-			text-align: center;
-			margin: 15px 0;
-			span, i{
-				font-size: 12px;
-			}
-		}
-		.footerBlockBottom{
-			@include flexRow(space-between);
-			width: 100%;
-			font-size: 12px;
-			margin-bottom: 15px;
-		}
-	}
+.bottomBlock {
+  @include border();
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 30px 0;
+      width: 47%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 20px 0;
+      }
+      button {
+        @include buttonStyleOne(10px, 20px);
+      }
+    }
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    div {
+      margin: 20px 0;
+      width: 47%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 15px 0;
+      }
+      button {
+        @include buttonStyleOne(8px, 15px);
+      }
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      margin: 10px 0;
+      width: 100%;
+      img {
+        width: 60%;
+        margin-left: 20%;
+        height: 100%;
+      }
+      span {
+        &:after {
+          @include hrAfterSpan(#B7B7B7);
+        }
+      }
+      p {
+        margin: 10px 0;
+      }
+      button {
+        @include buttonStyleOne(2px, 5px);
+      }
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    background-color: $globalColorSeven;
+    div {
+      margin: 3px 0;
+      width: 120%;
+      img {
+        width: 60%;
+        margin-left: 20%;
+        height: 100%;
+      }
+      p {
+        margin: 5px 0;
+      }
+      button {
+        @include buttonStyleOne(2px, 5px);
+      }
+    }
+  }
 }
 
+footer {
+  background-color: $globalColorTwo;
+  @include border();
+  span, i, p {
+    color: $globalColorOne;
+  }
 
-#underFooter{
-	background-color: $globalColorOne;
-	@include border();
-	span, i, p{
-		color: $globalColorFour;
-	}
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexCol(center);
+    .footerBlockTop {
+      text-align: center;
+      margin: 50px 0;
+      span, i {
+        font-size: 25px;
+      }
+    }
+    .footerBlockBottom {
+      @include flexRow(space-between);
+      width: 100%;
+      font-size: 30px;
+      margin-bottom: 50px;
+    }
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexCol(center);
+    .footerBlockTop {
+      text-align: center;
+      margin: 35px 0;
+      span, i {
+        font-size: 20px;
+      }
+    }
+    .footerBlockBottom {
+      @include flexRow(space-between);
+      width: 100%;
+      font-size: 25px;
+      margin-bottom: 35px;
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexCol(center);
+    .footerBlockTop {
+      text-align: center;
+      margin: 25px 0;
+      span, i {
+        font-size: 15px;
+      }
+    }
+    .footerBlockBottom {
+      @include flexRow(space-between);
+      width: 100%;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexCol(center);
+    .footerBlockTop {
+      text-align: center;
+      margin: 15px 0;
+      span, i {
+        font-size: 12px;
+      }
+    }
+    .footerBlockBottom {
+      @include flexRow(space-between);
+      width: 100%;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+  }
+}
 
-	@include breakpoint($bigWidth, $veryBigWidth){
-		@include flexRow(space-between);
-		.underFooter1{
-			padding: 20px 0;
-			@include flexRow(center);
-		}
-		.underFooter2{
-			padding: 20px 0;
-			.fa-google-plus{margin-left: 10px;}
-			.fa-facebook{margin-left: 10px;}
-			.fa-twitter{margin-left: 10px;}
-		}
-	}
-	@include breakpoint($normalWidth, $bigWidth){
-		@include flexRow(space-between);
-		.underFooter1{
-			padding: 15px 0;
-			@include flexRow(center);
-		}
-		.underFooter2{
-			padding: 15px 0;
-			.fa-google-plus{margin-left: 10px;}
-			.fa-facebook{margin-left: 10px;}
-			.fa-twitter{margin-left: 10px;}
-		}
-	}
-	@include breakpoint($littleWidth, $normalWidth){
-		@include flexRow(space-between);
-		.underFooter1{
-			padding: 10px 0;
-			@include flexCol(center);
-		}
-		.underFooter2{
-			padding: 10px 0;
-			.fa-google-plus{margin: 3px;}
-			.fa-facebook{margin: 3px;}
-			.fa-twitter{margin: 3px 0 3px 3px}
-		}
-	}
-	@include breakpoint($veryLittleWidth, $littleWidth){
-		@include flexRow(space-between);
-		.underFooter1{
-			padding: 5px 0;
-			@include flexCol(space-between);
-		}
-		.underFooter2{
-			@include flexCol(center);
-			padding: 5px 0;
-			.fa-google-plus{margin: 3px;}
-			.fa-facebook{margin: 3px;}
-			.fa-twitter{margin: 3px 0 3px 3px}
-		}
-	}
+#underFooter {
+  background-color: $globalColorOne;
+  @include border();
+  span, i, p {
+    color: $globalColorFour;
+  }
+
+  @include breakpoint($bigWidth, $veryBigWidth) {
+    @include flexRow(space-between);
+    .underFooter1 {
+      padding: 20px 0;
+      @include flexRow(center);
+    }
+    .underFooter2 {
+      padding: 20px 0;
+      .fa-google-plus {
+        margin-left: 10px;
+      }
+      .fa-facebook {
+        margin-left: 10px;
+      }
+      .fa-twitter {
+        margin-left: 10px;
+      }
+    }
+  }
+  @include breakpoint($normalWidth, $bigWidth) {
+    @include flexRow(space-between);
+    .underFooter1 {
+      padding: 15px 0;
+      @include flexRow(center);
+    }
+    .underFooter2 {
+      padding: 15px 0;
+      .fa-google-plus {
+        margin-left: 10px;
+      }
+      .fa-facebook {
+        margin-left: 10px;
+      }
+      .fa-twitter {
+        margin-left: 10px;
+      }
+    }
+  }
+  @include breakpoint($littleWidth, $normalWidth) {
+    @include flexRow(space-between);
+    .underFooter1 {
+      padding: 10px 0;
+      @include flexCol(center);
+    }
+    .underFooter2 {
+      padding: 10px 0;
+      .fa-google-plus {
+        margin: 3px;
+      }
+      .fa-facebook {
+        margin: 3px;
+      }
+      .fa-twitter {
+        margin: 3px 0 3px 3px
+      }
+    }
+  }
+  @include breakpoint($veryLittleWidth, $littleWidth) {
+    @include flexRow(space-between);
+    .underFooter1 {
+      padding: 5px 0;
+      @include flexCol(space-between);
+    }
+    .underFooter2 {
+      @include flexCol(center);
+      padding: 5px 0;
+      .fa-google-plus {
+        margin: 3px;
+      }
+      .fa-facebook {
+        margin: 3px;
+      }
+      .fa-twitter {
+        margin: 3px 0 3px 3px
+      }
+    }
+  }
 }
