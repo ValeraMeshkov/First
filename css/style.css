@@ -32,7 +32,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     header p {
       margin-top: 10px;
       font-size: 50px; }
@@ -188,7 +188,7 @@ header {
 #wrapper span {
   font-weight: bold;
   text-transform: uppercase; }
-@media (min-width: 800px) and (max-width: 1600px) {
+@media (min-width: 800px) and (max-width: 3000px) {
   #wrapper p, #wrapper span, #wrapper a {
     font-size: 17px; } }
 @media (min-width: 600px) and (max-width: 800px) {
@@ -207,7 +207,7 @@ header {
   padding: 0 10% 0 10%; }
   .blockWithThreeIkon i {
     color: #52BBA8; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .blockWithThreeIkon {
       display: flex;
       justify-content: space-between;
@@ -298,7 +298,7 @@ header {
   /* border: 1px solid black; */
   width: 80%;
   padding: 0 10% 0 10%; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .blockWithNews {
       display: flex;
       justify-content: space-between;
@@ -422,7 +422,7 @@ header {
   padding: 0 10% 0 10%; }
   .centerBlock i {
     color: #474747; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .centerBlock i {
       margin-top: 30px;
       font-size: 40px; }
@@ -508,7 +508,7 @@ header {
   /* border: 1px solid black; */
   width: 80%;
   padding: 0 10% 0 10%; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .blockWithHref {
       display: flex;
       justify-content: space-between;
@@ -595,7 +595,7 @@ header {
   padding: 0 10% 0 10%; }
   .blockWithTwoIkon i {
     color: #B7B7B7; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .blockWithTwoIkon {
       display: flex;
       justify-content: space-between;
@@ -692,7 +692,7 @@ header {
   /* border: 1px solid black; */
   width: 80%;
   padding: 0 10% 0 10%; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     .bottomBlock {
       display: flex;
       justify-content: space-between;
@@ -805,7 +805,7 @@ footer {
   padding: 0 10% 0 10%; }
   footer span, footer i, footer p {
     color: white; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     footer {
       display: flex;
       flex-direction: column;
@@ -881,7 +881,7 @@ footer {
   padding: 0 10% 0 10%; }
   #underFooter span, #underFooter i, #underFooter p {
     color: #474747; }
-  @media (min-width: 800px) and (max-width: 1600px) {
+  @media (min-width: 800px) and (max-width: 3000px) {
     #underFooter {
       display: flex;
       justify-content: space-between;
